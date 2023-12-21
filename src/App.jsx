@@ -129,12 +129,19 @@ function App() {
 
       } */}
 
-      <header className="bg-blue-950 flex justify-center py-3">
-        <img src={logo} alt="" className="flex max-w-[280px]" />
+      <header className="bg-blue-950 flex justify-center py-2">
+        <img src={logo} alt="" className="flex max-w-[150px]" />
       </header>
       <main className="main h-screen text-white w-full flex justify-center pt-4 ">
         <div className="bg-gray-950 flex flex-col items-center w-[400px] max-h-[500px] mx-6 rounded-lg">
-
+          <div className="flex px-8 w-full justify-between pt-3">
+            <div>
+              <h3 className="text-[12px]">
+                Update in <span className="text-blue-500">15</span><span className="pl-1">seg</span>
+              </h3>
+            </div>
+            <div>⛽</div>
+          </div>
           {/* boxes */}
           <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center">
             <h2 className="flex gap-2">
