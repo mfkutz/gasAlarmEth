@@ -217,6 +217,19 @@ function App() {
             </div>
           </div>
 
+          {/*  ALARM */}
+          <div className="flex gap-3 mt-4 items-center">
+            <span className="text-[12px]">Price required</span>
+            <input
+              className="border w-[50px] text-gray-900 text-[14px] flex text-center rounded-md"
+              type="number"
+              value={stablishPrice}
+              onChange={handleInput}
+            />
+
+            <button className="bg-red-500 px-[12px] py-[3px] rounded-md text-[12px] "  onClick={stablishAlarm}>Asign</button>
+            {alarmConfigure}
+          </div>
 
         </div>
 
