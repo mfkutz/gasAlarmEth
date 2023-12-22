@@ -199,7 +199,7 @@ function App() {
             </button>
             {alarmConfigure}
           </div>
-          <span className="pt-1">{button ? 'Off' : 'On'}</span>
+          <span className="pt-2 font-mono text-[12px]">{button ? 'Alarm is Off' : 'Alarm is On'}</span>
 
           <span className="text-[12px] mt-1">Coded by MartinK</span>
         </div>
