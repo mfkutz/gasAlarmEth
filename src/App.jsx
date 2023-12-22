@@ -89,7 +89,7 @@ function App() {
         <img src={logo} alt="" className="flex max-w-[150px]" />
       </header>
       <main className="main h-screen text-white w-full flex justify-center pt-4 ">
-        <div className="bg-gray-950 flex flex-col items-center w-[400px] max-h-[530px] mx-6 rounded-lg">
+        <div className="bg-gray-950 flex flex-col items-center w-[400px] max-h-[600px] mx-6 rounded-lg">
           <div className="flex px-8 w-full justify-between pt-3">
             <div>
               <h3 className="text-[12px]">
