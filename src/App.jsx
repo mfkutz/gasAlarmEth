@@ -99,7 +99,7 @@ function App() {
             <div>⛽</div>
           </div>
           {/* boxes */}
-          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center">
+          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center py-4">
             <h2 className="flex gap-2">
               <div>
                 😒
@@ -118,7 +118,7 @@ function App() {
             </div>
           </div>
           {/* boxes */}
-          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center">
+          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center py-4">
             <h2 className="flex gap-2">
               <div>
                 😏
@@ -143,7 +143,7 @@ function App() {
             </div>
           </div>
           {/* boxes */}
-          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center">
+          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center py-4">
             <h2 className="flex gap-2">
               <div>
                 👽
@@ -162,7 +162,7 @@ function App() {
             </div>
           </div>
           {/* ETH price */}
-          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center">
+          <div className="flex flex-col items-center max-w-[340px] max-h-[100px] bg-slate-900 border border-gray-700 mt-4 w-full rounded-xl justify-center py-4">
             <h2 className="flex gap-2">
               <div>
                 🐧
