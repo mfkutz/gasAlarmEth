@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import logo from './images/logo-etherscan-light.svg'
 import { RiVolumeOffVibrateFill } from "react-icons/ri";
+import soundAlarm from "./sound/sound.mp3"
 
 function App() {
 
@@ -16,8 +17,23 @@ function App() {
 
   /* ALARM */
   const [stablishPrice, setStablishPrice] = useState()
-  const [alarmConfigure, setAlarmConfigure] = useState(0)
+  const [alarmConfigure, setAlarmConfigure] = useState(-1)
   const [time, setTime] = useState(14)
+
+  const [audio] = useState(new Audio(soundAlarm))
+
+  /* const [button, setButton] = useState(localStorage.getItem("button") === "true" || true);
+  const [alarmConfigure, setAlarmConfigure] = useState(parseFloat(localStorage.getItem("alarmConfigure")) || -1); // Cambiado a -1 */
+
+  const playSound = () => {
+    audio.loop = true
+    audio.play()
+  }
+
+  const stopSound = () => {
+    audio.pause()
+    audio.currentTime = 0
+  }
 
   useEffect(() => {
 
@@ -72,17 +88,32 @@ function App() {
   }
 
   const stablishAlarm = () => {
-    setAlarmConfigure(stablishPrice)
-    setButton(!button)
+    if ((parseFloat(stablishPrice) === "") || parseFloat(stablishPrice === 0)) {
+      alert("Valor invalido")
+    } else {
+      if (audio.paused) {
+        setAlarmConfigure(stablishPrice)
+        setButton(!button)
+        /* localStorage.setItem("alarmConfigure", stablishPrice);
+        localStorage.setItem("button", true); */
+      } else {
+        stopSound()
+        setButton(!button)
+        setAlarmConfigure(-1)
+        /* localStorage.setItem("button", false); */
+      }
+    }
   }
 
   useEffect(() => {
 
     console.log(" alarma comprueba el precio")
-    if (showPriceGasUsd < alarmConfigure) {
+    if (showPriceGasUsd <= alarmConfigure) {
       console.log("alarma sonando")
+      playSound()
     } else {
       console.log("alarma apagada")
+      stopSound()
     }
 
   }, [showPriceGasUsd])
