@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import logo from './images/logo-etherscan-light.svg'
+import { RiVolumeOffVibrateFill } from "react-icons/ri";
 
 function App() {
 
@@ -8,15 +9,15 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [loadingEth, setLoadingEth] = useState(true)
   const [showPriceGasUsd, setShowPriceGasUsd] = useState("")
-
   const [showPriceGasUsdFast, setShowPriceGasUsdFast] = useState("")
 
+  /* BUTON STATES */
+  const [button, setButton] = useState(true)
 
   /* ALARM */
-  const [stablishPrice, setStablishPrice] = useState(2)
+  const [stablishPrice, setStablishPrice] = useState()
   const [alarmConfigure, setAlarmConfigure] = useState(0)
   const [time, setTime] = useState(14)
-
 
   useEffect(() => {
 
@@ -37,11 +38,6 @@ function App() {
           let lowFinalPrice = (((gasPrice.SafeGasPrice * 1000000000 * 21000) / 1000000000000000000) * parseFloat(data[12].price)).toFixed(2)
           let fastFinalPrice = (((gasPrice.SafeGasPrice * 1000000000 * 21700) / 1000000000000000000) * parseFloat(data[12].price)).toFixed(2)
           let parsePrice = parseFloat(lowFinalPrice)
-
-
-          console.log(lowFinalPrice)
-
-
           if (parsePrice > 0) {
             console.log("contador iniciado")
             setTime(14)
@@ -61,8 +57,6 @@ function App() {
     }
   }, [gasPrice.SafeGasPrice])
 
-
-
   useEffect(() => {
     const countdownInterval = setInterval(() => {
       setTime(prevCount => (prevCount > 0 ? prevCount - 1 : 14));
@@ -73,15 +67,25 @@ function App() {
     };
   }, [time]);
 
-
-
   const handleInput = (evt) => {
     setStablishPrice(evt.target.value)
   }
 
   const stablishAlarm = () => {
     setAlarmConfigure(stablishPrice)
+    setButton(!button)
   }
+
+  useEffect(() => {
+
+    console.log(" alarma comprueba el precio")
+    if (showPriceGasUsd < alarmConfigure) {
+      console.log("alarma sonando")
+    } else {
+      console.log("alarma apagada")
+    }
+
+  }, [showPriceGasUsd])
 
   return (
     <>
@@ -189,11 +193,15 @@ function App() {
               onChange={handleInput}
             />
 
-            <button className="bg-red-500 px-[12px] py-[3px] rounded-md text-[12px] " onClick={stablishAlarm}>Asign</button>
+            <button
+              className={` w-[60px] h-[25px] rounded-md text-[12px] text-center flex justify-center items-center ${button ? 'bg-green-500' : 'bg-red-500'}`}
+              onClick={stablishAlarm}>{button ? 'Act' : <RiVolumeOffVibrateFill />}
+            </button>
             {alarmConfigure}
           </div>
+          <span className="pt-1">{button ? 'Off' : 'On'}</span>
 
-          <span className="text-[12px] mt-6">Coded by MartinK</span>
+          <span className="text-[12px] mt-1">Coded by MartinK</span>
         </div>
 
       </main>
